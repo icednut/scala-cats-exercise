@@ -12,8 +12,8 @@ object Monoids {
   val sumRight = numbers.foldRight(0)(_ |+| _)
 
   // define a general API
-  //  def combineFold[T](list: List[T])(implicit semigroup: Semigroup[T]): T =
-  //    list.foldLeft(list.head)(_ |+| _)
+//    def combineFoldWithSemigroup[T](list: List[T])(implicit semigroup: Semigroup[T]): T =
+//      list.foldLeft(???)(_ |+| _)
   // Semigroup is not enough to provide a starting value here.
   // There is no way that semigroup would be capable enough to give us a good starting value of any kind T.
 

@@ -5,15 +5,19 @@ object Semigroups {
   // Semigroups COMBINE elements of the same type
 
   import cats.Semigroup
+  import cats.syntax.semigroup._
+
   import cats.instances.int._
 
   val naturalIntSemigroup = Semigroup[Int]
   val intCombination = naturalIntSemigroup.combine(1, 2)
+  val intCombination2 = 1 |+| 2
 
   import cats.instances.string._
 
   val naturalStringSemigroup = Semigroup[String]
   val stringCombination = naturalStringSemigroup.combine("I love ", "Cats")
+  val stirngCombination2 = "I love" |+| " " |+| "Cats"
 
   def reduceInts(list: List[Int]): Int = list.reduce(naturalIntSemigroup.combine)
 
@@ -35,10 +39,10 @@ object Semigroups {
 
   // extension methods from Semigroup - |+|
 
-  import cats.syntax.semigroup._
 
   val anIntSum = 2 |+| 3
   //  val anIntSum = 2 |+| "Hello" // compile error
+  val anIntSum2 = 2 + "Hello"
   val aStringConcat = "we like " |+| "semigroups"
   //  val aStringConcat = "we like " |+| 2 // compile error
   val aCombinedExpense = Expense(3, 80) |+| Expense(56, 44)
