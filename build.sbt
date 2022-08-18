@@ -5,5 +5,10 @@ ThisBuild / scalaVersion := "2.13.8"
 lazy val root = (project in file("."))
   .settings(
     name := "scala-cats-exercise",
-    libraryDependencies ++= Seq("org.typelevel" %% "cats-core" % "2.8.0")
+    libraryDependencies ++= Seq(
+      "org.typelevel" %% "cats-core" % "2.8.0",
+      "org.typelevel" %% "cats-effect" % "3.3.12",
+      "org.scalatest" %% "scalatest" % "3.2.13" % "test",
+      "org.typelevel" %% "cats-effect-testing-scalatest" % "1.4.0" % Test
+    )
   )

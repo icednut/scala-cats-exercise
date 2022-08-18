@@ -1,4 +1,4 @@
-package io.icednut.scala.cats.exercise.part2
+package io.icednut.scala.cats.exercise.part3
 
 import java.util.concurrent.Executors
 import scala.concurrent.{ExecutionContext, Future}
@@ -97,6 +97,7 @@ object Writers {
       }
     }
   }
+  // Benefit #2: Writers can keep logs separate on multiple threads
 
   implicit val ec: ExecutionContext = ExecutionContext.fromExecutorService(Executors.newFixedThreadPool(8))
 
@@ -112,8 +113,8 @@ object Writers {
     Future(naiveSum(10)).foreach(println)
     Future(naiveSum(10)).foreach(println)
     println("=============================")
-//    println(naiveSumAndLog(10).written.foreach(println))
-//    println(sumWithLogs(10).written.foreach(println))
+    //    println(naiveSumAndLog(10).written.foreach(println))
+    //    println(sumWithLogs(10).written.foreach(println))
     val sumFuture1 = Future(naiveSumAndLog(10))
     val sumFuture2 = Future(naiveSumAndLog(10))
     sumFuture1.map(_.written).foreach(println)
